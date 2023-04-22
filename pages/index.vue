@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  useHead({ title: 'ME | Products' });
+  useHead({ title: 'ME | Produtos' });
 
 </script>
 
