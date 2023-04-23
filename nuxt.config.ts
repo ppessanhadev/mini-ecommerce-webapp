@@ -11,6 +11,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  imports: {
+    dirs: ['./stores']
+  },
   runtimeConfig: {
     public: {
       baseURL: process.env.BASE_URL || ''
