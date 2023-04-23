@@ -4,7 +4,7 @@ import { defineStore, acceptHMRUpdate } from 'pinia';
 export const useProductsStore = defineStore({
   id: 'products-store',
   state: () => ({
-    loading: false,
+    loading: true,
     cart: [] as Cart[],
     products: [] as Product[] | null,
   }),
@@ -26,7 +26,6 @@ export const useProductsStore = defineStore({
       if (this.products?.length) {
         return;
       }
-      this.loading = true;
       const { data: products } = await useApi<Product[]>('/api/v1/product');
 
       if (products.value) {
