@@ -23,16 +23,12 @@ export const useProductsStore = defineStore({
       if (this.products?.length) {
         return;
       }
-
       this.loading = true;
       const { data: products } = await useApi<Product[]>('/api/v1/product');
 
       if (products.value) {
         this.products = products.value;
       }
-    },
-    setCart(cart: Cart[]) {
-      this.cart = cart;
     },
     addToCart(product: Product) {
       const { stock, ...productInfo } = product;
@@ -46,6 +42,9 @@ export const useProductsStore = defineStore({
       if (cartProduct?.quantity < stock) {
         this.cart[productIndex].quantity = cartProduct.quantity + 1;
       }
+    },
+    deleteFromCart(productId: string) {
+      this.cart = this.cart.filter(({ id }) => id !== productId);
     }
   }
 });
