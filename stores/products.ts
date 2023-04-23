@@ -12,7 +12,11 @@ export const useProductsStore = defineStore({
     totalPrice: (state) => {
       const total = state.cart.reduce((acc, product) => acc + product.price, 0);
       return formatCurrency(total);
-    }
+    },
+    cartsQuantity: (state) => {
+      const total = state.cart.reduce((acc, product) => acc + product.quantity, 0);
+      return total > 99 ? '99+' : total;
+    },
   },
   actions: {
     async setProducts() {
