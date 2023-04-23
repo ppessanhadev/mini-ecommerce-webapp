@@ -1,16 +1,12 @@
 <script setup lang="ts">
-  import { Product } from '~/types';
-
-  const props = defineProps<{ product: Product }>();
   const state = useProductsStore();
-
-  const maxQuantity = computed(() => {
-    return state.cart.some((c) => c.id === props.product.id && c.quantity >= props.product.stock);
-  });
 </script>
 
 <template>
-  <article class="flex flex-col m-2 w-fit w-[19rem] lg:h-96 lg:w-56 bg-stone-200 rounded shadow-md hover:shadow-xl">
+  <article
+    v-for="product in state.products" :key="product.id"
+    class="flex flex-col m-2 w-fit w-[19rem] lg:h-96 lg:w-56 bg-stone-200 rounded shadow-md hover:shadow-xl"
+  >
     <figure>
       <img
         class="w-80 lg:w-full h-80 lg:h-48 rounded-t"
@@ -33,7 +29,7 @@
 
     <button
       class="p-3 m-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md disabled:bg-blue-300 disabled:hover:bg-blue-300"
-      :disabled="maxQuantity"
+      :disabled="state.maxCartQuantity(product)"
       @click="() => state.addToCart(product)"
     >
       Adicionar ao carrinho

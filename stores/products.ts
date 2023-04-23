@@ -17,6 +17,9 @@ export const useProductsStore = defineStore({
       const total = state.cart.reduce((acc, product) => acc + product.quantity, 0);
       return total > 99 ? '99+' : total;
     },
+    maxCartQuantity: (state) => {
+      return (product: Product) => state.cart.some((c) => c.id === product.id && c.quantity >= product.stock);
+    }
   },
   actions: {
     async fetchProducts() {
