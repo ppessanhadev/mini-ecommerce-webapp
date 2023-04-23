@@ -13,7 +13,7 @@ A aplicação se comunica diretamente com a API desenvolvida para esse projeto (
 #### Tecnologias
 Utilizei as seguintes principais ferramentas:
 
-- [pinia]() para gerenciamento de estado global e compartilhamento de informações entre componentes.
+- [pinia](https://pinia.vuejs.org/introduction.html) para gerenciamento de estado global e compartilhamento de informações entre componentes.
 - [tailwind](https://docs.nestjs.com/techniques/mongodb) para estilização geral de toda a aplicação e facilitar a parte de responsividade.
 - [prettier](https://prettier.io) e [eslint](https://eslint.org) para consistência e padronização de código
 
@@ -21,7 +21,11 @@ Utilizei as seguintes principais ferramentas:
 
 A loja em sí possuí 3 páginas, sendo elas:
 
---
+| Página                | Descrição                                                                                                                             |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| /                     | Página voltada listagem de produtos disponiveis, gerenciado pelo admin                                                                |
+| /cart                 | Página voltada para listagem de todos os produtos no carrinho, sendo atualizado conforme a modificações e com persistencia de dados   |
+| /{qualquer_parametro} | Página "not found", caso tente acessar uma outra página que não existe, lhe dá a opção de ser redirecionado para a página de produtos |
 
 #### Como rodar o projeto
 
