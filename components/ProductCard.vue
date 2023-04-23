@@ -29,7 +29,7 @@
 
     <button
       class="p-3 m-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md disabled:bg-blue-300 disabled:hover:bg-blue-300"
-      :disabled="state.maxCartQuantity(product)"
+      :disabled="state.maxCartQuantity(product.id)"
       @click="() => state.addToCart(product)"
     >
       Adicionar ao carrinho
