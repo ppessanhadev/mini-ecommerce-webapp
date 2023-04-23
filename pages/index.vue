@@ -1,21 +1,8 @@
 <script setup lang="ts">
+  useCartLocalStorage();
   useHead({ title: 'ME | Produtos' });
+  definePageMeta({ middleware: ['products'] });
   const state = useProductsStore();
-  await state.setProducts();
-
-  watch(() => state.cart, () => {
-    const cart = JSON.stringify(state.cart);
-    localStorage.setItem('cart', cart);
-  }, { deep: true });
-
-  onMounted(() => {
-    const cart = localStorage.getItem('cart');
-
-    if (cart) {
-      state.cart = JSON.parse(cart);
-    }
-    state.loading = false;
-  });
 </script>
 
 <template>
