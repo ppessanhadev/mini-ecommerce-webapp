@@ -5,16 +5,16 @@
 </script>
 
 <template>
-  <article class="flex flex-col m-4 w-fit lg:w-56 bg-stone-200 rounded shadow-md hover:shadow-xl">
+  <article class="flex flex-col m-2 w-fit w-[19rem] lg:h-96 lg:w-56 bg-stone-200 rounded shadow-md hover:shadow-xl">
     <figure>
       <img
         class="w-80 lg:w-full h-80 lg:h-48 rounded-t"
         :src="product.image"
-        @error="($event.target as HTMLImageElement).src = '/image-not-found.jpg'"
+        onerror="javascript:this.src='/no-image.png'"
       >
     </figure>
 
-    <dl class="flex flex-col flex-1 p-2">
+    <dl class="flex flex-col flex-1 p-3">
       <dt class="text-md text-zinc-900">
         {{ product.name }}
       </dt>
@@ -27,8 +27,7 @@
     </dl>
 
     <button
-      disabled
-      class="p-2 m-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md disabled:bg-blue-300 disabled:hover:bg-blue-300"
+      class="p-3 m-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md disabled:bg-blue-300 disabled:hover:bg-blue-300"
     >
       Adicionar ao carrinho
     </button>
