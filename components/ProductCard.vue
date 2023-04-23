@@ -1,7 +1,16 @@
 <script setup lang="ts">
   import { Product } from '~/types';
 
-  defineProps<{ product: Product }>();
+  const props = defineProps<{ product: Product }>();
+
+  const state = useProductsStore();
+
+  const maxQuantity = computed(() => {
+    if (state.cart.some(({ id, quantity }) => props.product.id === id && quantity >= props.product.stock)) {
+      return true;
+    }
+    return false;
+  });
 </script>
 
 <template>
@@ -28,6 +37,8 @@
 
     <button
       class="p-3 m-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md disabled:bg-blue-300 disabled:hover:bg-blue-300"
+      :disabled="maxQuantity"
+      @click="() => state.addToCart(product)"
     >
       Adicionar ao carrinho
     </button>
