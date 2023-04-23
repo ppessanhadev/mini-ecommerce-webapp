@@ -9,6 +9,9 @@ export const useProductsStore = defineStore({
     products: [] as Product[] | null,
   }),
   getters: {
+    totalProductPrice: () => {
+      return (product: Cart) => formatCurrency(product.price * product.quantity);
+    },
     totalPrice: (state) => {
       const total = state.cart.reduce((acc, product) => acc + product.price, 0);
       return formatCurrency(total);
