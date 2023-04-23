@@ -2,14 +2,10 @@
   import { Product } from '~/types';
 
   const props = defineProps<{ product: Product }>();
-
   const state = useProductsStore();
 
   const maxQuantity = computed(() => {
-    if (state.cart.some(({ id, quantity }) => props.product.id === id && quantity >= props.product.stock)) {
-      return true;
-    }
-    return false;
+    return state.cart.some((c) => c.id === props.product.id && c.quantity >= props.product.stock);
   });
 </script>
 
