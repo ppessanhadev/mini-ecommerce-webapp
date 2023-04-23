@@ -19,7 +19,7 @@ export const useProductsStore = defineStore({
     },
   },
   actions: {
-    async setProducts() {
+    async fetchProducts() {
       if (this.products?.length) {
         return;
       }
