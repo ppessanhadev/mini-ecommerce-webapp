@@ -1,0 +1,36 @@
+<script setup lang="ts">
+  import { Product } from '~/types';
+
+  defineProps<{ product: Product }>();
+</script>
+
+<template>
+  <article class="flex flex-col m-4 w-fit lg:w-56 bg-stone-200 rounded shadow-md hover:shadow-xl">
+    <figure>
+      <img
+        class="w-80 lg:w-full h-80 lg:h-48 rounded-t"
+        :src="product.image"
+        @error="($event.target as HTMLImageElement).src = '/image-not-found.jpg'"
+      >
+    </figure>
+
+    <dl class="flex flex-col flex-1 p-2">
+      <dt class="text-md text-zinc-900">
+        {{ product.name }}
+      </dt>
+      <dd class="text-xl font-bold text-zinc-800">
+        {{ formatCurrency(product.price) }}
+      </dd>
+      <dd class="text-xs text-zinc-900">
+        Qtd disponível: {{ product.stock }}
+      </dd>
+    </dl>
+
+    <button
+      disabled
+      class="p-2 m-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md disabled:bg-blue-300 disabled:hover:bg-blue-300"
+    >
+      Adicionar ao carrinho
+    </button>
+  </article>
+</template>

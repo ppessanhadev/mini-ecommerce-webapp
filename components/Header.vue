@@ -1,5 +1,5 @@
 <template>
-  <header class="flex m-auto p-4 sm:w-[960px] justify-between items-center">
+  <header class="flex m-auto p-4 lg:w-[960px] justify-between items-center">
     <NuxtLink class="text-green-500 italic text-2xl" to="/">
       Mini<b class="text-blue-500">Ecommerce</b>
     </NuxtLink>
