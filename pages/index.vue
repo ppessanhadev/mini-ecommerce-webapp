@@ -2,6 +2,20 @@
   useHead({ title: 'ME | Produtos' });
   const state = useProductsStore();
   await state.setProducts();
+
+  watch(() => state.cart, () => {
+    const cart = JSON.stringify(state.cart);
+    localStorage.setItem('cart', cart);
+  }, { deep: true });
+
+  onMounted(() => {
+    const cart = localStorage.getItem('cart');
+
+    if (cart) {
+      state.setCart(JSON.parse(cart));
+    }
+    state.loading = false;
+  });
 </script>
 
 <template>

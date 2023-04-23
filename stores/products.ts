@@ -26,7 +26,6 @@ export const useProductsStore = defineStore({
 
       this.loading = true;
       const { data: products } = await useApi<Product[]>('/api/v1/product');
-      this.loading = false;
 
       if (products.value) {
         this.products = products.value;
@@ -44,7 +43,7 @@ export const useProductsStore = defineStore({
         this.cart = [...this.cart, { ...productInfo, quantity: 1 }];
       }
 
-      if (cartProduct.quantity < stock ) {
+      if (cartProduct?.quantity < stock) {
         this.cart[productIndex].quantity = cartProduct.quantity + 1;
       }
     }
