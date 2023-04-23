@@ -3,7 +3,7 @@
 
 Essa aplicação tem como objetivo ser a parte para ser utilizada pelo cliente final de um projeto voltado para ser um mini ecommerce.
 
-A loja de produtos recebeu um deploy na [Vercel](https://vercel.com) e pode ser acessado por ~~[esse link]()~~
+A loja de produtos recebeu um deploy na [Vercel](https://vercel.com) e pode ser acessado por [esse link](mini-ecommerce-webapp.vercel.app)
 
 ## Overview
 Durante o desenvolvimento, assim como a parte de administração dos produtos, utilizei  padrões e conceitos disponibilizados pela documentação do [Nuxt 3](https://nuxt.com/docs/guide/directory-structure/nuxt), ferramenta principal que utilizei para desenvolver esse projeto.
